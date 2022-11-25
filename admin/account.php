@@ -13,7 +13,10 @@
     $user = $conn->query($query);
     $row = $user->fetch_assoc();
     $Name = $row['Name'];
-    
+    if($row['Role']!="admin")
+    {
+        header('location:../index.php');
+    }
     $sql ="select * from user";
     $result = $conn->query($sql);
 ?>

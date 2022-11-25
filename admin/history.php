@@ -13,6 +13,10 @@
     $user = $conn->query($query);
     $row = $user->fetch_assoc();
     $Name = $row['Name'];
+    if($row['Role']!="admin")
+    {
+        header('location:../index.php');
+    }
     $sql = "select events.Created_at as Created_at, user.Name as Name  ,room.Name as room,Time.Name as time,events.Day as day,events.Cancel as cancel
     from events inner join user on events.Id_user = user.Id 
                 inner join room on events.Id_room = room.Id

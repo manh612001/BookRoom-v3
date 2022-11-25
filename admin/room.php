@@ -10,6 +10,10 @@
     else{
         $id = $_COOKIE['Id'];
     }
+    if($row['Role']!="admin")
+    {
+        header('location:../index.php');
+    }
     $room = "select * from room";
     $rs = $conn->query($room);
     $t ="select * from time";

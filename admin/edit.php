@@ -15,6 +15,11 @@
         $name = $row['Name'];
         $username = $row['UserName'];
         $pw = $row['Password'];
+        $R = $row['Role'];
+    }
+    if($R!="admin")
+    {
+        header('location:../index.php');
     }
     $id = $_COOKIE['Id'];
     $query = "select * from user where Id = '$id'";

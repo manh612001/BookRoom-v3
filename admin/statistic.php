@@ -8,6 +8,9 @@
     }
     else{
         $id = $_COOKIE['Id'];
+    }if($row['Role']!="admin")
+    {
+        header('location:../index.php');
     }
     $query = "select * from user where Id = '$id'";
     $user = $conn->query($query);
